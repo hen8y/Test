@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->string('no_required_of_activity');
+            $table->integer('no_required_of_activity');
             $table->timestamps();
         });
     }

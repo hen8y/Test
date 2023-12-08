@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('no_of_achievements');
+            $table->integer('no_of_achievements')->default(0);
             $table->string('current_badge');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

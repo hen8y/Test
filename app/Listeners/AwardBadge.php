@@ -21,6 +21,11 @@ class AwardBadge
      */
     public function handle(BadgeUnlocked $event): void
     {
-        //
+        $badge = $event->badge;
+        $user = $event->user;
+
+        $user->badges()->attach($badge);
+
+        $user->update(["current_badge"=>$badge->name]);
     }
 }

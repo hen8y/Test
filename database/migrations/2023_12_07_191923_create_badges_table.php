@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('badges', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('no_required_of_achievement');
+            $table->integer('no_required_of_achievement');
             $table->timestamps();
         });
     }
