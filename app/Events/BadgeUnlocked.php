@@ -19,12 +19,13 @@ class BadgeUnlocked
     /**
      * Create a new event instance.
      */
-    public $badge;
+    public $badge_name;
 
     public $user;
+
     public function __construct(Badge $badge, User $user)
     {
-        $this->badge = $badge;
+        $this->badge_name = $badge->name;
         $this->user = $user;
     }
 

@@ -16,7 +16,6 @@ class AchievementFactory extends Factory
      */
     public function definition(): array
     {
-        $name =
         $type = $this->faker->randomElement(["comment","lesson"]);
         if ($type === "comment") {
             $no_required_of_activity = $this->faker->unique()->randomElement([1,3,5,10,20]);

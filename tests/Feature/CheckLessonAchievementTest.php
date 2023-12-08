@@ -22,7 +22,7 @@ class CheckLessonAchievementTest extends TestCase
     {
 
         $user = User::factory()->create();
-        Achievement::factory()->create([
+        $achievement = Achievement::factory()->create([
             "name"=>"First Lesson Watched",
             'no_required_of_activity' => 1,
             "type"=>"lesson"
@@ -35,7 +35,13 @@ class CheckLessonAchievementTest extends TestCase
         $listener = new CheckLessonAchievement();
         $listener->handle($event);
 
-        // Event::assertDispatched(AchievementUnlocked::class);
+        $this->assertDatabaseHas('lesson_user', [
+            'user_id' => $user->id,
+            'lesson_id' => $lesson->id,
+            'watched' => true,
+        ]);
+
+        Event::assertDispatched(AchievementUnlocked::class);
 
     }
 }

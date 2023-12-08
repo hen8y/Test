@@ -41,11 +41,11 @@ class CheckLessonAchievement
 
 
         //get achievement no_required_of_activity
-        $achievement = Achievement::where("type","lessons")->where("no_required_of_activity",$watched_lessons)->first();
+        $achievement = Achievement::where("type","lesson")->where("no_required_of_activity",$watched_lessons)->first();
 
         //send an event with the achievement name if no of users watched lessons matches any achievemnent no_required_of_activity
         if($achievement){
-            event(new AchievementUnlocked($achievement->name,$user->id));
+            event(new AchievementUnlocked($achievement,$user));
         }
     }
 }
