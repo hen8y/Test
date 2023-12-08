@@ -10,7 +10,7 @@ use App\Models\Badge;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class AwardAchievemenet
+class AwardAchievement
 {
     /**
      * Create the event listener.

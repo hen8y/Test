@@ -4,6 +4,9 @@ namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Achievement;
+use App\Models\Badge;
+use App\Models\Lesson;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory

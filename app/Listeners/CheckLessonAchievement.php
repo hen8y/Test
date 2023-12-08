@@ -24,7 +24,12 @@ class CheckLessonAchievement
      */
     public function handle(LessonWatched $event): void
     {
-        //get all users watched and count
+        /**
+         * Assuming that the watched lessons are stored in the db.
+         *
+         * get all lesson users had watched and count
+         */
+
         $lesson = $event->lesson;
         $user = $event->user;
         $watched_lessons = DB::table("lesson_user")->where("lesson_id", $lesson->id)->where("user_id", $user->id)->count();
