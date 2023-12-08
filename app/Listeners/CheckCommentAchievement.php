@@ -33,7 +33,7 @@ class CheckCommentAchievement
 
         //send an event with the achievement name if no of users comment matches any achievemnent no_required_of_activity
         if($achievement){
-            event(new AchievementUnlocked($achievement->name,$comment->user->id));
+            event(new AchievementUnlocked($achievement,$comment->user));
         }
     }
 }

@@ -24,8 +24,9 @@ class AwardBadge
         $badge = $event->badge;
         $user = $event->user;
 
+        $user->update(["current_badge"=>$badge->name]);
+
         $user->badges()->attach($badge);
 
-        $user->update(["current_badge"=>$badge->name]);
     }
 }

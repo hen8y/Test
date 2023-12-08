@@ -40,18 +40,5 @@ class UserFactory extends Factory
         ]);
     }
 
-    public function configure(){
-
-       return $this->afterCreating(function (User $user) {
-            $lesson = Lesson::inRandomOrder()->first();
-            $user->lessons()->attach($lesson);
-
-            $badge = Badge::inRandomOrder()->first();
-            $user->badges()->attach($badge);
-
-            $achievement = Achievement::inRandomOrder()->first();
-            $user->achievements()->attach($achievement);
-       });
-    }
 }
 

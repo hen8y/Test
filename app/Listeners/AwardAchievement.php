@@ -40,11 +40,11 @@ class AwardAchievement
 
 
         //get badges no_required_of_achievement and compare
-        $badge = Badge::where("no_required_of_achievement",$$achievement_count)->first();
+        $badge = Badge::where("no_required_of_achievement",$achievement_count)->first();
 
         //send an event with the badge name if no of achievement matches any badge no_required_of_achievement
         if($badge){
-            event(new BadgeUnlocked($user->id, $badge->id));
+            event(new BadgeUnlocked($badge, $user));
         }
 
 

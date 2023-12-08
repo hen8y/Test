@@ -32,7 +32,13 @@ class CheckLessonAchievement
 
         $lesson = $event->lesson;
         $user = $event->user;
-        $watched_lessons = DB::table("lesson_user")->where("lesson_id", $lesson->id)->where("user_id", $user->id)->count();
+
+        //Attach user to the lesson first
+
+        $user->lessons()->attach($lesson,["watched"=>true]);
+
+        $watched_lessons = DB::table("lesson_user")->where("lesson_id", $lesson->id)->where("user_id", $user->id)->where("watched",true)->count();
+
 
         //get achievement no_required_of_activity
         $achievement = Achievement::where("type","lessons")->where("no_required_of_activity",$watched_lessons)->first();

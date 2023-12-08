@@ -27,8 +27,6 @@ class AchievementsController extends Controller
 
 
 
-
-
         return response()->json([
             'unlocked_achievements' => $achievements,
             'next_available_achievements' =>$next_achievement,
@@ -50,6 +48,7 @@ class AchievementsController extends Controller
             return $next_badge;
         }
     }
+
 
     public function nextLessonAchievement(User $user){
 
